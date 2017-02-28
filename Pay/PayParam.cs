@@ -1,7 +1,7 @@
 ﻿#region << 版 本 注 释 >>
 /****************************************************
 * 文 件 名：PayParam
-* Copyright(c) 青之软件
+* Copyright(c) 道斯软件
 * CLR 版本: 4.0.30319.17929
 * 创 建 人：ITdos
 * 电子邮箱：admin@itdos.com
@@ -16,7 +16,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Text;using Dos.Common;
 using Dos.WeChat.Model;
 
 namespace Dos.WeChat

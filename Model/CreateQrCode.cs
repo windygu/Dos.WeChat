@@ -1,7 +1,7 @@
 ﻿#region << 版 本 注 释 >>
 /****************************************************
 * 文 件 名：CreateQrCode
-* Copyright(c) 青之软件
+* Copyright(c) 道斯软件
 * CLR 版本: 4.0.30319.17929
 * 创 建 人：ITdos
 * 电子邮箱：admin@itdos.com
@@ -16,50 +16,50 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Newtonsoft.Json;
+using System.Text;using Dos.Common;
 
-namespace Dos.WeChat.Model
+
+namespace Dos.WeChat
 {
-    public class CreateQrCode:WeChatParam
+    /// <summary>
+    /// 
+    /// </summary>
+    public class CreateQrCode : WeChatParam
     {
         /// <summary>
         /// 该二维码有效时间，以秒为单位。 最大不超过1800。
         /// </summary>
-        [JsonProperty(PropertyName = "expire_seconds")]
+        [JsonProp(PropertyName = "expire_seconds")]
         public string ExpireSeconds { get; set; }
 
         /// <summary>
         /// 二维码类型，QR_SCENE为临时,QR_LIMIT_SCENE为永久
         /// </summary>
-        [JsonProperty(PropertyName = "action_name")]
+        [JsonProp(PropertyName = "action_name")]
         public string ActionName { get; set; }
 
         /// <summary>
         /// 二维码详细信息
         /// </summary>
-        [JsonProperty(PropertyName = "action_info")]
+        [JsonProp(PropertyName = "action_info")]
         public object ActionInfo { get; set; }
 
         ///// <summary>
         ///// 场景值ID，临时二维码时为32位非0整型，永久二维码时最大值为100000（目前参数只支持1--100000）
         ///// </summary>
-        //[JsonProperty(PropertyName = "scene_id")]
+        //[JsonProp(PropertyName = "scene_id")]
         //public string SceneId { get; set; }
 
         /// <summary>
-        /// 返回表示当前 <see cref="T:System.Object" /> 的 <see cref="T:System.String" />。
+        /// 
         /// </summary>
-        /// <returns>
-        /// <see cref="T:System.String" />，表示当前的 <see cref="T:System.Object" />。
-        /// </returns>
-        public override string ToString()
+        public string ToJsonString()
         {
-            var settings = new JsonSerializerSettings
-            {
-                NullValueHandling = NullValueHandling.Ignore
-            };
-            return JsonConvert.SerializeObject(this, settings);
+            //var settings = new JsonSerializerSettings
+            //{
+            //    NullValueHandling = NullValueHandling.Ignore
+            //};
+            return JSON.ToJSON(this);//, settings
         }
     }
 }
